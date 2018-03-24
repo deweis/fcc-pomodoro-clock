@@ -3,5 +3,10 @@ body {
 }
 
 #session {
-  font-size: 3em;
+  font-size: 3.3em;
+  border: 2px solid #9C0;
+  border-radius: 50%;
+  width: 275px;
+  height: 275px;
+  margin: auto;
 }

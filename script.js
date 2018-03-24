@@ -12,7 +12,7 @@ var x = setInterval( function() {
           timer -= 1;
         }
         else {
-          document.getElementById("timer").innerHTML = "Session over";
+          document.getElementById("timer").innerHTML = "End";
           clearInterval(x);
         }
 }, 1000);
