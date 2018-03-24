@@ -1,3 +1,7 @@
 body {
   text-align: center;
 }
+
+#session {
+  font-size: 3em;
+}
