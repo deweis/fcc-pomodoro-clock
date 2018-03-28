@@ -1,7 +1,21 @@
 body {
   text-align: center;
 }
-
+.length {
+  display: inline-block;
+  width: 50px;
+}
+.fas {
+  cursor: pointer;
+}
+#sessionLength, #breakLength {
+  font-size: 1.7em;
+  font-weight: bold;
+  margin: 0;
+}
+#sessionInfo, #breakInfo {
+  margin: 30px 0;
+}
 #session {
   font-size: 3.3em;
   border: 2px solid #9C0;
@@ -9,5 +23,6 @@ body {
   width: 275px;
   height: 275px;
   margin: auto;
+  margin-top: 40px;
   cursor: pointer;
 }

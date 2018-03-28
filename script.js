@@ -5,7 +5,10 @@ let breaker = breakLength * 60;
 
 document.getElementById("sessionLength").innerHTML = sessionLength;
 document.getElementById("breakLength").innerHTML = breakLength;
-document.getElementById("timer").innerHTML = sessionLength;
+
+let mins = Math.floor(timer/60);
+let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
+document.getElementById("timer").innerHTML = `${mins}:${secs}`;
 
 let running = 0;
 let x;
@@ -17,8 +20,8 @@ document.getElementById("session").addEventListener("click", function() {
       x = setInterval( function() {
               timer -= 1;
               if (timer >= 0) {
-                let mins = Math.floor(timer/60);
-                let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
+                mins = Math.floor(timer/60);
+                secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
                 document.getElementById("timer").innerHTML = `${mins}:${secs}`;
                 // check for linear-gradient for changing the background color
               }
@@ -26,16 +29,16 @@ document.getElementById("session").addEventListener("click", function() {
                 isBreak = 1;
                 timer = breaker;
                 document.getElementById("sessionTitle").innerHTML = "Break!";
-                let mins = Math.floor(timer/60);
-                let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
+                mins = Math.floor(timer/60);
+                secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
                 document.getElementById("timer").innerHTML = `${mins}:${secs}`;
               }
               else {
                 isBreak = 0;
                 timer = sessionLength * 60;
                 document.getElementById("sessionTitle").innerHTML = "Session";
-                let mins = Math.floor(timer/60);
-                let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
+                mins = Math.floor(timer/60);
+                secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
                 document.getElementById("timer").innerHTML = `${mins}:${secs}`;
               }
       }, 1000);

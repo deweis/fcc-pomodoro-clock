@@ -3,18 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <title>fCC Pomodoro Clock</title>
   </head>
   <body>
     <h1>fCC Pomodoro Clock</h1>
     <div id="sessionInfo">
       <h2>Session Length</h2>
-      <p id="sessionLength"></p>
+      <div>
+        <i id="sessionMinus" class="fas fa-minus length"></i>
+        <p id="sessionLength" class="length"></p>
+        <i id="sessionPlus" class="fas fa-plus length"></i>
+      </div>
     </div>
     <div id="breakInfo">
         <h2>Break Length</h2>
-        <p id="breakLength"></p>
+        <div>
+          <i id="breakMinus" class="fas fa-minus length"></i>
+          <p id="breakLength" class="length"></p>
+          <i id="breakPlus" class="fas fa-plus length"></i>
+        </div>
     </div>
     <div id="session">
       <p id="sessionTitle">Session</p>
