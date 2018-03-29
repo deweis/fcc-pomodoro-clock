@@ -3,6 +3,10 @@ let breakLength = 1;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 
+
+/**
+* Load initial page
+*/
 document.getElementById("sessionLength").innerHTML = sessionLength;
 document.getElementById("breakLength").innerHTML = breakLength;
 
@@ -10,6 +14,14 @@ let mins = Math.floor(timer/60);
 let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
 document.getElementById("timer").innerHTML = `${mins}:${secs}`;
 
+/**
+* Increase- / Decrease the session- and break durations
+*/
+
+
+/**
+* Start and Stop the timer by cklicking the session circle
+*/
 let running = 0;
 let x;
 let isBreak = 0;
