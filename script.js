@@ -3,7 +3,6 @@ let breakLength = 1;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 
-
 /**
 * Load initial page
 */
@@ -13,6 +12,15 @@ document.getElementById("breakLength").innerHTML = breakLength;
 let mins = Math.floor(timer/60);
 let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
 document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+
+/**
+* Update Timer
+*/
+function updateTimer() {
+  mins = Math.floor(timer/60);
+  secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
+  document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+}
 
 /**
 * Increase- / Decrease the session- and break durations
@@ -46,15 +54,6 @@ document.getElementById("breakMinus").addEventListener("click", function() {
 });
 
 /**
-* Update Timer
-*/
-function updateTimer() {
-  mins = Math.floor(timer/60);
-  secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-  document.getElementById("timer").innerHTML = `${mins}:${secs}`;
-}
-
-/**
 * Start and Stop the timer by cklicking the session circle
 */
 let running = 0;
@@ -67,26 +66,20 @@ document.getElementById("session").addEventListener("click", function() {
       x = setInterval( function() {
               timer -= 1;
               if (timer >= 0) {
-                mins = Math.floor(timer/60);
-                secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-                document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+                updateTimer();
                 // check for linear-gradient for changing the background color
               }
               else if (isBreak === 0) {
                 isBreak = 1;
                 timer = breaker;
                 document.getElementById("sessionTitle").innerHTML = "Break!";
-                mins = Math.floor(timer/60);
-                secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-                document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+                updateTimer();
               }
               else {
                 isBreak = 0;
                 timer = sessionLength * 60;
                 document.getElementById("sessionTitle").innerHTML = "Session";
-                mins = Math.floor(timer/60);
-                secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-                document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+                updateTimer();
               }
       }, 1000);
   } else {
