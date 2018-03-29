@@ -17,7 +17,42 @@ document.getElementById("timer").innerHTML = `${mins}:${secs}`;
 /**
 * Increase- / Decrease the session- and break durations
 */
+document.getElementById("sessionPlus").addEventListener("click", function() {
+  sessionLength += 1;
+  timer = sessionLength * 60;
+  document.getElementById("sessionLength").innerHTML = sessionLength;
+  updateTimer();
+});
 
+document.getElementById("sessionMinus").addEventListener("click", function() {
+    if (sessionLength === 1) {return;}
+  sessionLength -= 1;
+  timer = sessionLength * 60;
+  document.getElementById("sessionLength").innerHTML = sessionLength;
+  updateTimer();
+});
+
+document.getElementById("breakPlus").addEventListener("click", function() {
+  breakLength += 1;
+  breaker = breakLength * 60;
+  document.getElementById("breakLength").innerHTML = breakLength;
+});
+
+document.getElementById("breakMinus").addEventListener("click", function() {
+  if (breakLength === 1) {return;}
+  breakLength -= 1;
+  breaker = breakLength * 60;
+  document.getElementById("breakLength").innerHTML = breakLength;
+});
+
+/**
+* Update Timer
+*/
+function updateTimer() {
+  mins = Math.floor(timer/60);
+  secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
+  document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+}
 
 /**
 * Start and Stop the timer by cklicking the session circle
