@@ -4,19 +4,26 @@ body {
   background: #333;
   color: white;
 }
+#timerInfo {
+  display: flex;
+  flex-wrap: wrap;
+  /*justify-content: center;*/
+  align-items: center;
+}
+#sessionInfo, #breakInfo {
+  font-size: 1em;
+  margin: 0;
+  width: 100%;
+}
+#sessionLength, #breakLength {
+  margin: 0;
+}
 .length {
   display: inline-block;
   width: 50px;
 }
 .fas {
   cursor: pointer;
-}
-#sessionLength, #breakLength {
-  margin: 0;
-}
-#sessionInfo, #breakInfo {
-  font-size: 1em;
-  margin: 30px 0;
 }
 #session {
   font-size: 3.3em;
@@ -27,4 +34,17 @@ body {
   margin: auto;
   margin-top: 40px;
   cursor: pointer;
+}
+/* ====================== Media Queries ====================== */
+@media screen and (min-width: 550px) {
+  #timerInfo {
+    width: 550px;
+    margin: 0 auto;
+  }
+  #sessionInfo, #breakInfo {
+    width: 50%;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
 }

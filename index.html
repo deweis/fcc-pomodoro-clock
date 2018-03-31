@@ -9,26 +9,28 @@
   </head>
   <body>
     <h1>fCC Pomodoro Clock</h1>
-    <div id="sessionInfo">
-      <h2>Session Length</h2>
-      <div>
-        <i id="sessionMinus" class="fas fa-minus length"></i>
-        <p id="sessionLength" class="length"></p>
-        <i id="sessionPlus" class="fas fa-plus length"></i>
-      </div>
-    </div>
-    <div id="breakInfo">
-        <h2>Break Length</h2>
+    <section id="timerInfo">
+      <div id="sessionInfo">
+        <h2>Session Length</h2>
         <div>
-          <i id="breakMinus" class="fas fa-minus length"></i>
-          <p id="breakLength" class="length"></p>
-          <i id="breakPlus" class="fas fa-plus length"></i>
+          <i id="sessionMinus" class="fas fa-minus length"></i>
+          <p id="sessionLength" class="length"></p>
+          <i id="sessionPlus" class="fas fa-plus length"></i>
         </div>
-    </div>
-    <div id="session">
+      </div>
+      <div id="breakInfo">
+          <h2>Break Length</h2>
+          <div>
+            <i id="breakMinus" class="fas fa-minus length"></i>
+            <p id="breakLength" class="length"></p>
+            <i id="breakPlus" class="fas fa-plus length"></i>
+          </div>
+      </div>
+    </section>
+    <section id="session">
       <p id="sessionTitle">Session</p>
       <p id="timer"></p>
-    </div>
+    </section>
   <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
