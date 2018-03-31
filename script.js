@@ -63,8 +63,8 @@ document.getElementById("breakMinus").addEventListener("click", function() {
 */
 function updateBackground() {
   let rangeGreen = Number((1-(timer/(duration))).toFixed(2)) * 100;
-  let rangeWhite = 100-rangeGreen;
-  document.getElementById("session").style.background = "linear-gradient(white, white "+rangeWhite+"%, #9C0 "+rangeWhite+"%, #9C0)";
+  let rangeGray = 100-rangeGreen;
+  document.getElementById("session").style.background = "linear-gradient(#333, #333 "+rangeGray+"%, #9C0 "+rangeGray+"%, #9C0)";
 }
 
 /**

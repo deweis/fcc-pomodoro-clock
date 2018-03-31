@@ -1,5 +1,8 @@
 body {
   text-align: center;
+  font-family: Open Sans, Arial;
+  background: #333;
+  color: white;
 }
 .length {
   display: inline-block;
@@ -9,11 +12,10 @@ body {
   cursor: pointer;
 }
 #sessionLength, #breakLength {
-  font-size: 1.7em;
-  font-weight: bold;
   margin: 0;
 }
 #sessionInfo, #breakInfo {
+  font-size: 1em;
   margin: 30px 0;
 }
 #session {
