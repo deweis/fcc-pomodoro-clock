@@ -15,8 +15,12 @@ body {
   margin: 0;
   width: 100%;
 }
+#timerInfo h2 {
+  font-weight: normal;
+}
 #sessionLength, #breakLength {
   margin: 0;
+  font-size: 1.3em;
 }
 .length {
   display: inline-block;
