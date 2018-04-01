@@ -1,5 +1,5 @@
-let sessionLength = 45;
-let breakLength = 15;
+let sessionLength = 25;
+let breakLength = 5;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60
