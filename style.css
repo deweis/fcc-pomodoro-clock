@@ -4,6 +4,11 @@ body {
   background: #333;
   color: white;
 }
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3em;
+  margin: 0;
+}
 #timerInfo {
   display: flex;
   flex-wrap: wrap;
@@ -17,6 +22,7 @@ body {
 }
 #timerInfo h2 {
   font-weight: normal;
+  font-size: 1.2em;
 }
 #sessionLength, #breakLength {
   margin: 0;
@@ -54,8 +60,10 @@ body {
   }
   #sessionInfo, #breakInfo {
     width: 50%;
+    font-size: 1.2em;
   }
   h1 {
-    font-size: 2.5em;
+    margin: 25px 0;
+    font-size: 5em;
   }
 }
