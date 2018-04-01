@@ -1,5 +1,5 @@
-let sessionLength = 1;
-let breakLength = 1;
+let sessionLength = 45;
+let breakLength = 15;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60
@@ -62,9 +62,10 @@ document.getElementById("breakMinus").addEventListener("click", function() {
 * Update Timer background
 */
 function updateBackground() {
-  let rangeGreen = Number((1-(timer/(duration))).toFixed(2)) * 100;
-  let rangeGray = 100-rangeGreen;
-  document.getElementById("session").style.background = "linear-gradient(#333, #333 "+rangeGray+"%, #9C0 "+rangeGray+"%, #9C0)";
+  let filling = isBreak === 1 ? '#f44' : '#9C0';
+  let rangeFilling = Number((1-(timer/(duration))).toFixed(2)) * 100;
+  let rangeGray = 100-rangeFilling;
+  document.getElementById("session").style.background = "linear-gradient(#333, #333 "+rangeGray+"%, "+filling+" "+rangeGray+"%, "+filling+")";
 }
 
 /**
@@ -88,6 +89,7 @@ document.getElementById("session").addEventListener("click", function() {
                 timer = breaker;
                 duration = breakLength * 60
                 document.getElementById("sessionTitle").innerHTML = "Break!";
+                document.getElementById("session").style.border = "2px solid #f44"
                 updateTimer();
                 updateBackground();
               }
@@ -96,6 +98,7 @@ document.getElementById("session").addEventListener("click", function() {
                 timer = sessionLength * 60;
                 duration = sessionLength * 60
                 document.getElementById("sessionTitle").innerHTML = "Session";
+                document.getElementById("session").style.border = "2px solid #9C0"
                 updateTimer();
                 updateBackground();
               }

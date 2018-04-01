@@ -22,6 +22,12 @@ body {
   margin: 0;
   font-size: 1.3em;
 }
+#sessionLength {
+  color: #9C0;
+}
+#breakLength {
+  color: #f44;
+}
 .length {
   display: inline-block;
   width: 50px;
@@ -31,6 +37,7 @@ body {
 }
 #session {
   font-size: 3.3em;
+  box-shadow: inset 0px 0px 0px 4px #333;
   border: 2px solid #9C0;
   border-radius: 50%;
   width: 300px;
