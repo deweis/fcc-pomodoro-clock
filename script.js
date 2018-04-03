@@ -1,8 +1,11 @@
-let sessionLength = 0.3;
-let breakLength = 0.3;
+let sessionLength = 45;
+let breakLength = 15;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
+let total = breaker + timer;
+let share = breaker + timer;
+console.log(total);
 
 /**
 * Load initial page
@@ -39,6 +42,8 @@ document.getElementById("sessionPlus").addEventListener("click", function() {
   sessionLength += 1;
   timer = sessionLength * 60;
   duration = sessionLength * 60;
+  total = breaker + timer;
+  share = breaker + timer;
   document.getElementById("sessionLength").innerHTML = sessionLength;
   updateTimer();
   updateBackground();
@@ -49,6 +54,8 @@ document.getElementById("sessionMinus").addEventListener("click", function() {
   sessionLength -= 1;
   timer = sessionLength * 60;
   duration = sessionLength * 60;
+  total = breaker + timer;
+  share = breaker + timer;
   document.getElementById("sessionLength").innerHTML = sessionLength;
   updateTimer();
   updateBackground();
@@ -57,6 +64,8 @@ document.getElementById("sessionMinus").addEventListener("click", function() {
 document.getElementById("breakPlus").addEventListener("click", function() {
   breakLength += 1;
   breaker = breakLength * 60;
+  total = breaker + timer;
+  share = breaker + timer;
   document.getElementById("breakLength").innerHTML = breakLength;
 });
 
@@ -64,6 +73,8 @@ document.getElementById("breakMinus").addEventListener("click", function() {
   if (breakLength === 1) {return;}
   breakLength -= 1;
   breaker = breakLength * 60;
+  total = breaker + timer;
+  share = breaker + timer;
   document.getElementById("breakLength").innerHTML = breakLength;
 });
 
@@ -74,46 +85,45 @@ function updateBackground() {
   let filling = isBreak === 1 ? '#f44' : '#9C0';
   let rangeFilling = Math.round(Number((1-(timer/(duration))).toFixed(2)) * 100);
   let rangeGray = 100-rangeFilling;
-  console.log(rangeGray+'%');
-  document.getElementById("session").style.background = "linear-gradient(#333, #333 "+rangeGray+"%, "+filling+" "+rangeGray+"%, "+filling+")";
-  document.getElementById("load-state").innerHTML = rangeGray+'%';
+  let state = 100-Math.round(Number((1-(share/(total))).toFixed(2)) * 100);
+  document.getElementById("btn").style.background = "linear-gradient(#333, #333 "+rangeGray+"%, "+filling+" "+rangeGray+"%, "+filling+")";
+  document.getElementById("load-state").innerHTML = state+'%';
   if (rangeGray < 66 && isBreak === 0) {
     document.getElementById("battery").innerHTML = "&#xf241;";
   }
   if (rangeGray < 33 && isBreak === 0) {
     document.getElementById("battery").innerHTML = "&#xf242;";
   }
-  /*if (rangeGray > 0 && isBreak === 1) {
-    document.getElementById("battery").innerHTML = "&#xf243;";
-    document.getElementById("battery").style.color = "#ff3d00";
-  }*/
   if (rangeGray === 0 && isBreak === 1) {
     document.getElementById("battery").innerHTML = "&#xf244;";
   }
 }
 
 /**
-* Start and Stop the timer by cklicking the session circle
+* Start and Stop the timer by cklicking the button
 */
 let running = 0;
 let x;
 let isBreak = 0;
 
-document.getElementById("session").addEventListener("click", function() {
+document.getElementById("btn").addEventListener("click", function() {
   if (running === 0) {
       running = 1;
       x = setInterval( function() {
               timer -= 1;
+              share -= 1;
               if (timer >= 0) {
+                if (isBreak === 0) {document.getElementById("btn").innerHTML = "Session";}
                 updateTimer();
                 updateBackground();
               }
               else if (isBreak === 0) {
                 isBreak = 1;
                 timer = breaker;
-                duration = breakLength * 60
-                document.getElementById("sessionTitle").innerHTML = "Break!";
-                document.getElementById("session").style.border = "2px solid #f44"
+                duration = breakLength * 60;
+                share = breaker;
+                document.getElementById("btn").innerHTML = "Break!";
+                document.getElementById("btn").style.border = "5px solid #f44"
                 document.getElementById("battery").innerHTML = "&#xf243;";
                 document.getElementById("battery").style.color = "#ff3d00";
                 updateTimer();
@@ -122,9 +132,10 @@ document.getElementById("session").addEventListener("click", function() {
               else {
                 isBreak = 0;
                 timer = sessionLength * 60;
-                duration = sessionLength * 60
-                document.getElementById("sessionTitle").innerHTML = "Session";
-                document.getElementById("session").style.border = "2px solid #9C0";
+                duration = sessionLength * 60;
+                share = breaker + timer;
+                document.getElementById("btn").innerHTML = "Session";
+                document.getElementById("btn").style.border = "5px solid #9C0";
                 document.getElementById("battery").innerHTML = "&#xf240;";
                 document.getElementById("battery").style.color = "#64dd17";
                 updateTimer();

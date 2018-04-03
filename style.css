@@ -5,14 +5,12 @@ body {
   color: white;
 }
 h1 {
-  font-family: 'Pacifico', cursive;
   font-size: 3em;
   margin: 0;
 }
 #timerInfo {
   display: flex;
   flex-wrap: wrap;
-  /*justify-content: center;*/
   align-items: center;
 }
 #sessionInfo, #breakInfo {
@@ -41,22 +39,53 @@ h1 {
 .fas {
   cursor: pointer;
 }
-#session {
-  font-size: 3.3em;
-  box-shadow: inset 0px 0px 0px 4px #333;
-  border: 2px solid #9C0;
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  margin: auto;
-  margin-top: 40px;
-  cursor: pointer;
+#theTimer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 25px 0;
 }
 #battery {
-  font-size: 15em;
+  font-size: 6em;
   margin: 0;
+  width: 100%;
+}
+#btn {
+  font-size: 2.3em;
+  background: #9C0;
+  color: #fff;
+  box-shadow: inset 0px 0px 0px 4px #333;
+  border: 5px solid #9C0;
+  border-radius: 12px;
+  width: 180px;
+  height: 60px;
+  margin: 25px auto;
+  cursor: pointer;
+}
+#btn:focus {
+  outline:0;
+}
+#timer {
+  margin: 0;
+  width: 100%;
+  font-size: 2em;
+}
+#load-state {
+  margin: 0;
+  width: 100%;
+  font-size: 2em;
 }
 /* ====================== Media Queries ====================== */
+@media screen and (min-width: 357px) {
+  #timer, #battery, #load-state {
+    width: 33.3%;
+  }
+  #theTimer {
+    max-width: 415px;
+    margin: 25px auto;
+  }
+
+}
 @media screen and (min-width: 550px) {
   #timerInfo {
     width: 550px;
@@ -68,6 +97,6 @@ h1 {
   }
   h1 {
     margin: 25px 0;
-    font-size: 5em;
+    font-size: 4em;
   }
 }

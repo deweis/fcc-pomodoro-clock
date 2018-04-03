@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <title>fCC Pomodoro Clock</title>
   </head>
   <body>
-    <h1>FreeCodeCamp</h1>
+    <h1>fCC Pomodoro Clock</h1>
+    <div>
+      <button type="button" id="btn">Start</button>
+    </div>
     <section id="timerInfo">
       <div id="breakInfo">
           <h2>Break Length</h2>
@@ -28,13 +30,10 @@
         </div>
       </div>
     </section>
-    <section id="session">
-      <p id="sessionTitle">Session</p>
-      <p id="timer"></p>
-    </section>
-    <section>
-      <div id="battery" class="fa"></div>
-      <div id="load-state"></div>
+    <section id="theTimer">
+      <div id="timer" class="realTime"></div>
+      <div id="battery" class="fa realTime"></div>
+      <div id="load-state" class="realTime"></div>
     </section>
   <script type="text/javascript" src="script.js"></script>
   </body>
