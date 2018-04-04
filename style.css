@@ -8,6 +8,22 @@ h1 {
   font-size: 3em;
   margin: 0;
 }
+#status-bar {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.status-item {
+  width: 80px;
+}
+#load-state {
+  font-size: 1.3em;
+}
+#battery {
+  font-size: 3em;
+  margin-right: 10px;
+}
 #timerInfo {
   display: flex;
   flex-wrap: wrap;
@@ -45,11 +61,6 @@ h1 {
   align-items: center;
   margin: 25px 0;
 }
-#battery {
-  font-size: 6em;
-  margin: 0;
-  width: 100%;
-}
 #btn {
   font-size: 2.3em;
   background: #9C0;
@@ -70,16 +81,11 @@ h1 {
   width: 100%;
   font-size: 2em;
 }
-#load-state {
-  margin: 0;
-  width: 100%;
-  font-size: 2em;
-}
 /* ====================== Media Queries ====================== */
 @media screen and (min-width: 357px) {
-  #timer, #battery, #load-state {
+  /*#timer, #battery, #load-state {
     width: 33.3%;
-  }
+  }*/
   #theTimer {
     max-width: 415px;
     margin: 25px auto;

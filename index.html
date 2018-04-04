@@ -8,7 +8,13 @@
     <title>fCC Pomodoro Clock</title>
   </head>
   <body>
-    <h1>fCC Pomodoro Clock</h1>
+    <header>
+      <ul id="status-bar">
+        <li id="load-state" class="status-item"></li>
+        <li id="battery" class="status-item fa"></li>
+      </ul>
+      <h1>fCC Pomodoro Clock</h1>
+    </header>
     <div>
       <button type="button" id="btn">Start</button>
     </div>
@@ -32,8 +38,6 @@
     </section>
     <section id="theTimer">
       <div id="timer" class="realTime"></div>
-      <div id="battery" class="fa realTime"></div>
-      <div id="load-state" class="realTime"></div>
     </section>
   <script type="text/javascript" src="script.js"></script>
   </body>
