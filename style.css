@@ -2,17 +2,29 @@ body {
   text-align: center;
   font-family: Open Sans, Arial;
   background: #333;
-  color: white;
+  color: #000;
+  margin: 0;
+  background: #fff;
 }
 h1 {
-  font-size: 3em;
-  margin: 0;
+  font-size: 2em;
+}
+header {
+  width: 100%;
+}
+#main {
+  border: 2px solid #E1E2E1;
+  background: #F5F5F6;
 }
 #status-bar {
   list-style-type: none;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  background: #E1E2E1;
+  border: 2px solid #E1E2E1;
 }
 .status-item {
   width: 80px;
@@ -83,17 +95,21 @@ h1 {
 }
 /* ====================== Media Queries ====================== */
 @media screen and (min-width: 357px) {
-  /*#timer, #battery, #load-state {
-    width: 33.3%;
-  }*/
+  h1 {
+    font-size: 3em;
+  }
   #theTimer {
     max-width: 415px;
     margin: 25px auto;
   }
+  #sessionInfo, #breakInfo {
+    width: 50%;
+  }
 
 }
 @media screen and (min-width: 550px) {
-  #timerInfo {
+
+  #status-bar, #timerInfo {
     width: 550px;
     margin: 0 auto;
   }
@@ -102,7 +118,13 @@ h1 {
     font-size: 1.2em;
   }
   h1 {
-    margin: 25px 0;
+    margin: 0 auto;
     font-size: 4em;
+    width: 550px;
+    padding: 25px 0;
+  }
+  #main {
+    width: 550px;
+    margin: 0 auto;
   }
 }
