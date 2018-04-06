@@ -5,7 +5,7 @@ let breaker = breakLength * 60;
 let duration = sessionLength * 60;
 let total = breaker + timer;
 let share = breaker + timer;
-console.log(total);
+//console.log(total);
 
 /**
 * Load initial page
@@ -15,7 +15,9 @@ document.getElementById("breakLength").innerHTML = breakLength;
 
 let mins = Math.floor(timer/60);
 let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+//document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+console.log(window.getComputedStyle(document.getElementById("canvas")).fontSize);
+
 
 /**
 * Battery Colors:
@@ -32,7 +34,8 @@ document.getElementById("load-state").innerHTML = '100%';
 function updateTimer() {
   mins = Math.floor(timer/60);
   secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-  document.getElementById("timer").innerHTML = `${mins}:${secs}`;
+  document.getElementById("canvas").style.height = `"${document.getElementById("canvas").clientHeight}"`;
+  document.getElementById("canvas").innerHTML = `${mins}:${secs}`;
 }
 
 /**
