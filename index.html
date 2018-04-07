@@ -8,6 +8,31 @@
     <title>fCC Pomodoro Clock</title>
   </head>
   <body>
+    <section id="main">
+      <h1>fCC</h1>
+      <h2>Pomodoro Clock</h2>
+      <div>
+        <button type="button" id="btn">Start</button>
+      </div>
+      <div id="settings">
+        <div id="break-settings">
+          <h3>Break</h3>
+          <div class="controller">
+            <i id="breakMinus" class="fas fa-minus length btn-settings"></i>
+            <p id="breakLength" class="length"></p>
+            <i id="breakPlus" class="fas fa-plus length btn-settings"></i>
+          </div>
+        </div class="">
+        <div id="session-settings">
+          <h3>Session</h3>
+          <div class="controller">
+            <i id="sessionMinus" class="fas fa-minus length btn-settings"></i>
+            <p id="sessionLength" class="length"></p>
+            <i id="sessionPlus" class="fas fa-plus length btn-settings"></i>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- <header>
       <ul id="status-bar">
         <li id="load-state" class="status-item"></li>
@@ -21,8 +46,8 @@
       <div>
         <button type="button" id="btn">Start</button>
       </div>
-      <section id="timerInfo">
-        <div id="breakInfo">
+      <section id="timerInfo"> -> settings
+        <div id="breakInfo"> -> break-settings
             <h2>Break Length</h2>
             <div>
               <i id="breakMinus" class="fas fa-minus length"></i>
@@ -30,7 +55,7 @@
               <i id="breakPlus" class="fas fa-plus length"></i>
             </div>
         </div>
-        <div id="sessionInfo">
+        <div id="sessionInfo"> -> break-settings
           <h2>Session Length</h2>
           <div>
             <i id="sessionMinus" class="fas fa-minus length"></i>
