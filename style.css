@@ -1,4 +1,4 @@
-body {
+/*body {
   text-align: center;
   font-family: Open Sans, Arial;
   background: #333;
@@ -101,7 +101,8 @@ header {
   width: 100%;
   font-size: 2em;
 }
-/* ====================== Media Queries ====================== */
+/*
+/* ====================== Media Queries ======================
 @media screen and (min-width: 357px) {
   h1 {
     font-size: 3em;
@@ -143,3 +144,4 @@ header {
     margin: 0 auto;
   }
 }
+*/

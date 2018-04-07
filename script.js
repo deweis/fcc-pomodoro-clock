@@ -1,15 +1,15 @@
-let sessionLength = 45;
+/*let sessionLength = 45;
 let breakLength = 15;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
 let total = breaker + timer;
 let share = breaker + timer;
-//console.log(total);
+//console.log(total);*/
 
 /**
 * Load initial page
-*/
+
 document.getElementById("sessionLength").innerHTML = sessionLength;
 document.getElementById("breakLength").innerHTML = breakLength;
 
@@ -17,30 +17,30 @@ let mins = Math.floor(timer/60);
 let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
 //document.getElementById("timer").innerHTML = `${mins}:${secs}`;
 console.log(window.getComputedStyle(document.getElementById("canvas")).fontSize);
-
+*/
 
 /**
 * Battery Colors:
 *   - Green: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=64DD17
 *   - Red:   https://material.io/color/#!/?view.left=0&view.right=0&primary.color=FF3D00
-*/
+
 document.getElementById("battery").innerHTML = "&#xf240;";
 document.getElementById("battery").style.color = "#64dd17";
 document.getElementById("load-state").innerHTML = '100%';
-
+*/
 /**
 * Update Timer
-*/
+
 function updateTimer() {
   mins = Math.floor(timer/60);
   secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
   document.getElementById("canvas").style.height = `"${document.getElementById("canvas").clientHeight}"`;
   document.getElementById("canvas").innerHTML = `${mins}:${secs}`;
 }
-
+*/
 /**
 * Increase- / Decrease the session- and break durations
-*/
+
 document.getElementById("sessionPlus").addEventListener("click", function() {
   sessionLength += 1;
   timer = sessionLength * 60;
@@ -80,10 +80,10 @@ document.getElementById("breakMinus").addEventListener("click", function() {
   share = breaker + timer;
   document.getElementById("breakLength").innerHTML = breakLength;
 });
-
+*/
 /**
 * Update Timer background
-*/
+
 function updateBackground() {
   let filling = isBreak === 1 ? '#f44' : '#9C0';
   let rangeFilling = Math.round(Number((1-(timer/(duration))).toFixed(2)) * 100);
@@ -101,10 +101,10 @@ function updateBackground() {
     document.getElementById("battery").innerHTML = "&#xf244;";
   }
 }
-
+*/
 /**
 * Start and Stop the timer by cklicking the button
-*/
+
 let running = 0;
 let x;
 let isBreak = 0;
@@ -150,3 +150,4 @@ document.getElementById("btn").addEventListener("click", function() {
       clearInterval(x);
   }
 });
+*/
