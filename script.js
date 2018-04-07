@@ -1,3 +1,12 @@
+let sessionLength = 2;
+let breakLength = 1;
+
+/**
+* Load initial page
+*/
+document.getElementById("sessionLength").innerHTML = sessionLength;
+document.getElementById("breakLength").innerHTML = breakLength;
+
 /*
 let sessionLength = 45;
 let breakLength = 1;
