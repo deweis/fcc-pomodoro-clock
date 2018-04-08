@@ -2,7 +2,6 @@ body {
   font-family: Open Sans, Arial;
   text-align: center;
   margin: 0;
-
 }
 #main {
   background: #F5F5F6;
@@ -21,16 +20,26 @@ h2 {
   background: #fff;
   font-size: 2em;
   border: 2px solid #E1E2E1;
+  width: 135px;
   padding: 20px;
   border-radius: 25%;
   cursor: pointer;
+}
+.btn-settings {
+  background: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #E1E2E1;
 }
 #btn:hover, .btn-settings:hover {
   background: #78909c;
 }
 #btn:focus, .btn-settings:focus {
   outline:0;
-  background: #78909c;
+  box-shadow: 0px 0px 15px 4px rgba(96,125,139,0.75);
+}
+#btn:active, .btn-settings:active {
+  background: #455a64;
 }
 #settings {
   display: flex;
@@ -61,12 +70,6 @@ h2 {
 }
 .length {
   width: 50px;
-}
-.btn-settings {
-  background: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #E1E2E1;
 }
 .fas::before {
   line-height: 50px;
