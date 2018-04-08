@@ -25,6 +25,13 @@ h2 {
   border-radius: 25%;
   cursor: pointer;
 }
+#btn:hover, .btn-settings:hover {
+  background: #78909c;
+}
+#btn:focus, .btn-settings:focus {
+  outline:0;
+  background: #78909c;
+}
 #settings {
   display: flex;
   flex-wrap: wrap;
@@ -43,7 +50,7 @@ h2 {
   color: #9C0;
 }
 #breakLength, #sessionLength {
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: bold;
 }
 .controller {
@@ -65,12 +72,10 @@ h2 {
   line-height: 50px;
   height: 50px;
 }
-#btn:hover, .btn-settings:hover {
-  background: #78909c;
-}
+
 
 /* ====================== Media Queries ====================== */
-@media screen and (min-width: 357px) {
+@media screen and (min-width: 375px) {
   #break-settings, #session-settings {
     width: 50%;
   }
@@ -165,9 +170,7 @@ header {
   margin: 25px auto;
   cursor: pointer;
 }
-#btn:focus {
-  outline:0;
-}
+
 #timer {
   margin: 0;
   width: 100%;
