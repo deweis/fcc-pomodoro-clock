@@ -11,16 +11,23 @@ body {
 }
 h1 {
   font-size: 2em;
+  color: #78909c;
 }
 h2 {
   font-size: 2.8em;
   margin: 40px 0;
+  color: #78909c;
 }
 #btn {
   background: #fff;
-  font-size: 2em;
+  color: #78909c; /**/
+  /*text-shadow: -1px 0 #E1E2E1, 0 1px #E1E2E1, 1px 0 #E1E2E1, 0 -1px #E1E2E1;*/
+  letter-spacing: 2px;
+  font-size: 2.2em;
+  font-weight: bold;
   border: 2px solid #E1E2E1;
-  width: 135px;
+  box-shadow: inset 0px 0px 0px 2px #fff;
+  width: 175px;
   padding: 20px;
   border-radius: 25%;
   cursor: pointer;
@@ -33,13 +40,15 @@ h2 {
 }
 #btn:hover, .btn-settings:hover {
   background: #78909c;
-}
-#btn:focus, .btn-settings:focus {
-  outline:0;
-  box-shadow: 0px 0px 15px 4px rgba(96,125,139,0.75);
+  text-shadow: none;
+  color: #F5F5F6;
 }
 #btn:active, .btn-settings:active {
   background: #455a64;
+}
+#btn:focus, .btn-settings:focus {
+  outline:0;
+  box-shadow: inset 0px 0px 0px 2px #fff, 0px 0px 15px 4px rgba(96,125,139,0.75);
 }
 #settings {
   display: flex;
@@ -161,18 +170,7 @@ header {
   align-items: center;
   margin: 25px 0;
 }
-#btn {
-  font-size: 2.3em;
-  background: #9C0;
-  color: #fff;
-  box-shadow: inset 0px 0px 0px 4px #333;
-  border: 5px solid #9C0;
-  border-radius: 12px;
-  width: 180px;
-  height: 60px;
-  margin: 25px auto;
-  cursor: pointer;
-}
+
 
 #timer {
   margin: 0;
