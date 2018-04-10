@@ -1,5 +1,5 @@
-let sessionLength = 2;
-let breakLength = 1;
+let sessionLength = 0.1;
+let breakLength = 0.1;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
@@ -11,6 +11,39 @@ document.getElementById("sessionLength").innerHTML = sessionLength;
 document.getElementById("breakLength").innerHTML = breakLength;
 
 /**
+* Display reset button
+*/
+function displayReset() {
+  document.getElementById("btn-reset").style.display = "initial";
+  document.getElementById("settings").style.marginBottom = "10px";
+}
+/**
+* Press reset button
+*/
+document.getElementById("btn-reset").addEventListener("click", function() {
+  sessionLength = 0.1;
+  breakLength = 0.1;
+  timer = sessionLength * 60;
+  breaker = breakLength * 60;
+  duration = sessionLength * 60;
+  isBreak = 0;
+  running = 0;
+  clearInterval(x);
+  document.getElementById("title").innerHTML = "fCC";
+  document.getElementById("title").style.color = "#78909c";
+  document.getElementById("canvas").innerHTML = "Pomodoro Clock";
+  document.getElementById("canvas").style.color = "#78909c";
+  document.getElementById("btn").innerHTML = "Start";
+  document.getElementById("btn").style.background = "#fff";
+  document.getElementById("btn").style.border = "2px solid #E1E2E1";
+  document.getElementById("btn").style.color = "#78909c";
+  document.getElementById("sessionLength").innerHTML = sessionLength;
+  document.getElementById("breakLength").innerHTML = breakLength;
+  document.getElementById("settings").style.margin = "40px 0";
+  document.getElementById("btn-reset").style.display = "none";
+});
+
+/**
 * Increase- / Decrease the session- and break durations
 */
 document.getElementById("sessionPlus").addEventListener("click", function() {
@@ -20,6 +53,7 @@ document.getElementById("sessionPlus").addEventListener("click", function() {
   document.getElementById("sessionLength").innerHTML = sessionLength;
   //updateTimer();
   //updateBackground();
+  displayReset();
 });
 
 document.getElementById("sessionMinus").addEventListener("click", function() {
@@ -30,12 +64,14 @@ document.getElementById("sessionMinus").addEventListener("click", function() {
   document.getElementById("sessionLength").innerHTML = sessionLength;
   //updateTimer();
   //updateBackground();
+  displayReset();
 });
 
 document.getElementById("breakPlus").addEventListener("click", function() {
   breakLength += 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
+  displayReset();
 });
 
 document.getElementById("breakMinus").addEventListener("click", function() {
@@ -43,6 +79,7 @@ document.getElementById("breakMinus").addEventListener("click", function() {
   breakLength -= 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
+  displayReset();
 });
 
 /**
@@ -78,6 +115,7 @@ document.getElementById("btn").addEventListener("click", function() {
               timer -= 1;
               if (timer >= 0) {
                 if (isBreak === 0) {
+                  displayReset();
                   document.getElementById("title").innerHTML = "Session";
                   document.getElementById("btn").innerHTML = "Pause";
                   document.getElementById("btn").style.border = "2px solid #9C0";

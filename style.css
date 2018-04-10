@@ -38,15 +38,26 @@ h2 {
   cursor: pointer;
   border: 2px solid #E1E2E1;
 }
-#btn:hover, .btn-settings:hover {
+#btn-reset {
+  background: #fff;
+  color: #78909c;
+  font-size: 1.3em;
+  width: 75px;
+  border: 2px solid #E1E2E1;
+  border-radius: 25%;
+  cursor: pointer;
+  margin-bottom: 25px;
+  display: none;
+}
+#btn:hover, .btn-settings:hover, #btn-reset:hover {
   background: #78909c !important;
   /*text-shadow: none;*/
   color: #F5F5F6 !important;
 }
-#btn:active, .btn-settings:active {
+#btn:active, .btn-settings:active, #btn-reset:active {
   background: #455a64;
 }
-#btn:focus, .btn-settings:focus {
+#btn:focus, .btn-settings:focus, #btn-reset:focus {
   outline:0;
   box-shadow: inset 0px 0px 0px 2px #fff, 0px 0px 15px 4px rgba(96,125,139,0.75);
 }
