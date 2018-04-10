@@ -39,9 +39,9 @@ h2 {
   border: 2px solid #E1E2E1;
 }
 #btn:hover, .btn-settings:hover {
-  background: #78909c;
-  text-shadow: none;
-  color: #F5F5F6;
+  background: #78909c !important;
+  /*text-shadow: none;*/
+  color: #F5F5F6 !important;
 }
 #btn:active, .btn-settings:active {
   background: #455a64;
