@@ -1,5 +1,5 @@
-let sessionLength = 0.1;
-let breakLength = 0.1;
+let sessionLength = 1;
+let breakLength = 1;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
@@ -21,8 +21,8 @@ function displayReset() {
 * Press reset button
 */
 document.getElementById("btn-reset").addEventListener("click", function() {
-  sessionLength = 0.1;
-  breakLength = 0.1;
+  sessionLength = 1;
+  breakLength = 1;
   timer = sessionLength * 60;
   breaker = breakLength * 60;
   duration = sessionLength * 60;
@@ -47,38 +47,52 @@ document.getElementById("btn-reset").addEventListener("click", function() {
 * Increase- / Decrease the session- and break durations
 */
 document.getElementById("sessionPlus").addEventListener("click", function() {
+  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session") {return;}
   sessionLength += 1;
   timer = sessionLength * 60;
   duration = sessionLength * 60;
   document.getElementById("sessionLength").innerHTML = sessionLength;
-  //updateTimer();
-  //updateBackground();
+  /*if (document.getElementById("title").innerHTML === "Session" && running === 0) {
+    updateTimer();
+    updateBackground();
+  }*/
   displayReset();
 });
 
 document.getElementById("sessionMinus").addEventListener("click", function() {
-  if (sessionLength === 1) {return;}
+  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session" || sessionLength === 1) {return;}
   sessionLength -= 1;
   timer = sessionLength * 60;
   duration = sessionLength * 60;
   document.getElementById("sessionLength").innerHTML = sessionLength;
-  //updateTimer();
-  //updateBackground();
+  /*if (document.getElementById("title").innerHTML === "Session" && running === 0) {
+    updateTimer();
+    updateBackground();
+  }*/
   displayReset();
 });
 
 document.getElementById("breakPlus").addEventListener("click", function() {
+  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session") {return;}
   breakLength += 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
+  /*if (document.getElementById("title").innerHTML === "Break!" && isBreak === 0) {
+    updateTimer();
+    updateBackground();
+  }*/
   displayReset();
 });
 
 document.getElementById("breakMinus").addEventListener("click", function() {
-  if (breakLength === 1) {return;}
+  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session" || breakLength === 1) {return;}
   breakLength -= 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
+  /*if (document.getElementById("title").innerHTML === "Break!" && isBreak === 0) {
+    updateTimer();
+    updateBackground();
+  }*/
   displayReset();
 });
 
