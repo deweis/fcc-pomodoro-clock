@@ -1,8 +1,10 @@
-let sessionLength = 1;
-let breakLength = 1;
+let sessionLength = 25;
+let breakLength = 5;
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
+var audio = new Audio('http://sampleswap.org/samples-ghost/%20MAY%202014%20LATEST%20ADDITIONS/PUBLIC%20DOMAIN%20MUSIC/626[kb]buster-brown-gonna-make-you-happy-1943.mp3.mp3');
+
 
 /**
 * Load initial page
@@ -21,8 +23,8 @@ function displayReset() {
 * Press reset button
 */
 document.getElementById("btn-reset").addEventListener("click", function() {
-  sessionLength = 1;
-  breakLength = 1;
+  sessionLength = 25;
+  breakLength = 5;
   timer = sessionLength * 60;
   breaker = breakLength * 60;
   duration = sessionLength * 60;
@@ -137,11 +139,16 @@ document.getElementById("btn").addEventListener("click", function() {
                   document.getElementById("title").style.color = "#9C0";
                   document.getElementById("canvas").style.color = "#9C0";
                 }
+                if (isBreak === 1) {
+                  audio.play();
+                }
                 updateTimer();
                 updateBackground();
               }
               else if (isBreak === 0) {
                 isBreak = 1;
+                audio.load();
+                audio.play();
                 timer = breaker;
                 duration = breakLength * 60;
                 document.getElementById("title").innerHTML = "Break!";
@@ -154,6 +161,7 @@ document.getElementById("btn").addEventListener("click", function() {
                 updateBackground();
               }
               else {
+                audio.pause();
                 isBreak = 0;
                 timer = sessionLength * 60;
                 duration = sessionLength * 60;
@@ -170,7 +178,9 @@ document.getElementById("btn").addEventListener("click", function() {
   } else {
       running = 0;
       document.getElementById("btn").innerHTML = "Start";
+      audio.pause();
       clearInterval(x);
+      console.log(isBreak);
   }
 });
 
