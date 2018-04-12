@@ -5,7 +5,7 @@ body {
 }
 #main {
   background: #F5F5F6;
-  margin-top: 50px;
+  margin: 5px;
   border: 2px solid #E1E2E1;
   border-radius: 25%;
 }
@@ -103,5 +103,10 @@ h2 {
   body {
     width: 450px;
     margin: 0 auto;
+  }
+}
+@media screen and (min-height: 650px) {
+  #main {
+    margin-top: 50px;
   }
 }
