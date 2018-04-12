@@ -20,8 +20,7 @@ h2 {
 }
 #btn {
   background: #fff;
-  color: #78909c; /**/
-  /*text-shadow: -1px 0 #E1E2E1, 0 1px #E1E2E1, 1px 0 #E1E2E1, 0 -1px #E1E2E1;*/
+  color: #78909c;
   letter-spacing: 2px;
   font-size: 2.2em;
   font-weight: bold;
@@ -51,7 +50,6 @@ h2 {
 }
 #btn:hover, .btn-settings:hover, #btn-reset:hover {
   background: #78909c !important;
-  /*text-shadow: none;*/
   color: #F5F5F6 !important;
 }
 #btn:active, .btn-settings:active, #btn-reset:active {
@@ -95,140 +93,15 @@ h2 {
   line-height: 50px;
   height: 50px;
 }
-
-
 /* ====================== Media Queries ====================== */
 @media screen and (min-width: 375px) {
   #break-settings, #session-settings {
     width: 50%;
   }
 }
-
 @media screen and (min-width: 450px) {
   body {
     width: 450px;
     margin: 0 auto;
   }
 }
-
-
-/*body {
-  background: #333;
-  color: #000;
-  background: #fff;
-}
-h1 {
-  font-size: 2.3em;
-}
-header {
-  width: 100%;
-}
-#status-bar {
-  list-style-type: none;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  background: #E1E2E1;
-  border: 2px solid #E1E2E1;
-}
-.status-item {
-  width: 80px;
-}
-#load-state {
-  font-size: 1.3em;
-}
-#battery {
-  font-size: 3em;
-  margin-right: 10px;
-}
-#top {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 30px 0;
-}
-#timerInfo { -> settings
-  align-items: center;
-  margin: 10px 0 25px 0;
-}
-#sessionInfo, #breakInfo {
-  font-size: 1em;
-  margin: 0;
-  width: 100%;
-}
-#timerInfo h2 { -> settings
-  font-weight: normal;
-  font-size: 1.2em;
-}
-#sessionLength, #breakLength {
-  margin: 0;
-  font-size: 1.3em;
-}
-#sessionLength {
-  color: #9C0;
-}
-#breakLength {
-  color: #f44;
-}
-
-
-#theTimer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin: 25px 0;
-}
-
-
-#timer {
-  margin: 0;
-  width: 100%;
-  font-size: 2em;
-}
-/*
-/* ====================== Media Queries ======================
-@media screen and (min-width: 357px) {
-  h1 {
-    font-size: 3em;
-  }
-  #theTimer {
-    max-width: 415px;
-    margin: 25px auto;
-  }
-  #sessionInfo, #breakInfo {
-    width: 50%;
-  }
-
-}
-@media screen and (min-width: 487px) {
-  h1 {
-    font-size: 4em;
-    padding: 25px 0;
-    margin: 0;
-  }
-}
-@media screen and (min-width: 550px) {
-
-  #status-bar, #timerInfo { -> settings
-    width: 550px;
-    margin: 0 auto;
-  }
-  #sessionInfo, #breakInfo {
-    width: 50%;
-    font-size: 1.2em;
-  }
-  h1 {
-    margin: 0 auto;
-    font-size: 4em;
-    width: 550px;
-    padding: 25px 0;
-  }
-  #main {
-    width: 550px;
-    margin: 0 auto;
-  }
-}
-*/

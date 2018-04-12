@@ -5,7 +5,6 @@ let breaker = breakLength * 60;
 let duration = sessionLength * 60;
 var audio = new Audio('http://sampleswap.org/samples-ghost/%20MAY%202014%20LATEST%20ADDITIONS/PUBLIC%20DOMAIN%20MUSIC/626[kb]buster-brown-gonna-make-you-happy-1943.mp3.mp3');
 
-
 /**
 * Load initial page
 */
@@ -19,6 +18,7 @@ function displayReset() {
   document.getElementById("btn-reset").style.display = "initial";
   document.getElementById("settings").style.marginBottom = "10px";
 }
+
 /**
 * Press reset button
 */
@@ -54,10 +54,6 @@ document.getElementById("sessionPlus").addEventListener("click", function() {
   timer = sessionLength * 60;
   duration = sessionLength * 60;
   document.getElementById("sessionLength").innerHTML = sessionLength;
-  /*if (document.getElementById("title").innerHTML === "Session" && running === 0) {
-    updateTimer();
-    updateBackground();
-  }*/
   displayReset();
 });
 
@@ -67,10 +63,6 @@ document.getElementById("sessionMinus").addEventListener("click", function() {
   timer = sessionLength * 60;
   duration = sessionLength * 60;
   document.getElementById("sessionLength").innerHTML = sessionLength;
-  /*if (document.getElementById("title").innerHTML === "Session" && running === 0) {
-    updateTimer();
-    updateBackground();
-  }*/
   displayReset();
 });
 
@@ -79,10 +71,6 @@ document.getElementById("breakPlus").addEventListener("click", function() {
   breakLength += 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
-  /*if (document.getElementById("title").innerHTML === "Break!" && isBreak === 0) {
-    updateTimer();
-    updateBackground();
-  }*/
   displayReset();
 });
 
@@ -91,10 +79,6 @@ document.getElementById("breakMinus").addEventListener("click", function() {
   breakLength -= 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
-  /*if (document.getElementById("title").innerHTML === "Break!" && isBreak === 0) {
-    updateTimer();
-    updateBackground();
-  }*/
   displayReset();
 });
 
@@ -106,6 +90,7 @@ function updateTimer() {
   secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
   document.getElementById("canvas").innerHTML = `${mins}:${secs}`;
 }
+
 /**
 * Update Timer background
 */
@@ -126,7 +111,6 @@ let isBreak = 0;
 document.getElementById("btn").addEventListener("click", function() {
   if (running === 0) {
       running = 1;
-      //document.getElementById("btn").innerHTML = "Pause";
       x = setInterval( function() {
               timer -= 1;
               if (timer >= 0) {
@@ -183,22 +167,3 @@ document.getElementById("btn").addEventListener("click", function() {
       console.log(isBreak);
   }
 });
-
-/**
-* Load initial page
-
-let mins = Math.floor(timer/60);
-let secs = timer % 60 > 9 ? timer % 60 : `0${timer % 60}`;
-//document.getElementById("timer").innerHTML = `${mins}:${secs}`;
-console.log(window.getComputedStyle(document.getElementById("canvas")).fontSize);
-*/
-
-/**
-* Battery Colors:
-*   - Green: https://material.io/color/#!/?view.left=0&view.right=0&primary.color=64DD17
-*   - Red:   https://material.io/color/#!/?view.left=0&view.right=0&primary.color=FF3D00
-
-document.getElementById("battery").innerHTML = "&#xf240;";
-document.getElementById("battery").style.color = "#64dd17";
-document.getElementById("load-state").innerHTML = '100%';
-*/
