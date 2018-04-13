@@ -1,10 +1,11 @@
 let sessionLength = 25;
 let breakLength = 5;
-const sessionColor = '#4caf50'; /* #9C0;*/
+const sessionColor = '#4caf50'; /*#9C0;*/
 const breakColor = '#ff5722'; /*#f44;*/
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
+let isReset = 0;
 const audio = new Audio('http://sampleswap.org/samples-ghost/%20MAY%202014%20LATEST%20ADDITIONS/PUBLIC%20DOMAIN%20MUSIC/626[kb]buster-brown-gonna-make-you-happy-1943.mp3.mp3');
 
 /**
@@ -25,22 +26,22 @@ function displayReset() {
 * Press reset button
 */
 document.getElementById("btn-reset").addEventListener("click", function() {
-  sessionLength = 25;
-  breakLength = 5;
+  isReset = 1;
   timer = sessionLength * 60;
   breaker = breakLength * 60;
   duration = sessionLength * 60;
   isBreak = 0;
   running = 0;
   clearInterval(x);
-  document.getElementById("title").innerHTML = "fCC";
-  document.getElementById("title").style.color = "#78909c";
-  document.getElementById("canvas").innerHTML = "Pomodoro Clock";
-  document.getElementById("canvas").style.color = "#78909c";
+  audio.pause();
+  updateTimer();
+  document.getElementById("title").innerHTML = "Session";
+  document.getElementById("title").style.color = sessionColor;
+  document.getElementById("canvas").style.color = sessionColor;
   document.getElementById("btn").innerHTML = "Start";
   document.getElementById("btn").style.background = "#fff";
-  document.getElementById("btn").style.border = "2px solid #E1E2E1";
-  document.getElementById("btn").style.color = "#78909c";
+  document.getElementById("btn").style.border = `2px solid ${sessionColor}`;
+  document.getElementById("btn").style.color = "#E1E2E1";
   document.getElementById("sessionLength").innerHTML = sessionLength;
   document.getElementById("breakLength").innerHTML = breakLength;
   document.getElementById("settings").style.margin = "40px 0";
@@ -51,37 +52,49 @@ document.getElementById("btn-reset").addEventListener("click", function() {
 * Increase- / Decrease the session- and break durations
 */
 document.getElementById("sessionPlus").addEventListener("click", function() {
-  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session") {return;}
+  if (isReset === 0 && !(document.getElementById("title").innerHTML === "fCC")) {return;} //"fCC";)) {return;}
   sessionLength += 1;
   timer = sessionLength * 60;
   duration = sessionLength * 60;
   document.getElementById("sessionLength").innerHTML = sessionLength;
-  displayReset();
+  if (isReset === 1) {
+    updateTimer();
+    document.getElementById("btn-reset").style.display = "none";
+  }
 });
 
 document.getElementById("sessionMinus").addEventListener("click", function() {
-  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session" || sessionLength === 1) {return;}
+  if ((isReset === 0 || sessionLength === 1) && !(document.getElementById("title").innerHTML === "fCC") ) {return;}
   sessionLength -= 1;
   timer = sessionLength * 60;
   duration = sessionLength * 60;
   document.getElementById("sessionLength").innerHTML = sessionLength;
-  displayReset();
+  if (isReset === 1) {
+    updateTimer();
+    document.getElementById("btn-reset").style.display = "none";
+  }
 });
 
 document.getElementById("breakPlus").addEventListener("click", function() {
-  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session") {return;}
+  if (isReset === 0 && !(document.getElementById("title").innerHTML === "fCC")) {return;}
   breakLength += 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
-  displayReset();
+  if (isReset === 1) {
+    updateTimer();
+    document.getElementById("btn-reset").style.display = "none";
+  }
 });
 
 document.getElementById("breakMinus").addEventListener("click", function() {
-  if (document.getElementById("title").innerHTML === "Break!" || document.getElementById("title").innerHTML === "Session" || breakLength === 1) {return;}
+  if ((isReset === 0 || breakLength === 1) && !(document.getElementById("title").innerHTML === "fCC") ) {return;}
   breakLength -= 1;
   breaker = breakLength * 60;
   document.getElementById("breakLength").innerHTML = breakLength;
-  displayReset();
+  if (isReset === 1) {
+    updateTimer();
+    document.getElementById("btn-reset").style.display = "none";
+  }
 });
 
 /**
@@ -113,6 +126,7 @@ let isBreak = 0;
 document.getElementById("btn").addEventListener("click", function() {
   if (running === 0) {
       running = 1;
+      isReset = 0;
       x = setInterval( function() {
               timer -= 1;
               if (timer >= 0) {
@@ -166,6 +180,5 @@ document.getElementById("btn").addEventListener("click", function() {
       document.getElementById("btn").innerHTML = "Start";
       audio.pause();
       clearInterval(x);
-      console.log(isBreak);
   }
 });
