@@ -46,6 +46,8 @@ h2 {
   border-radius: 25%;
   cursor: pointer;
   margin-bottom: 25px;
+  padding: 5px;
+  text-align: center;
   display: none;
 }
 #btn:hover, .btn-settings:hover, #btn-reset:hover {
