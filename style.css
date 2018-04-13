@@ -71,10 +71,10 @@ h2 {
   width: 100%;
 }
 #break-settings {
-  color: #f44;
+  color: #ff5722;
 }
 #session-settings {
-  color: #9C0;
+  color: #4caf50;
 }
 #breakLength, #sessionLength {
   font-size: 1.2em;

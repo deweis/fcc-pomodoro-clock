@@ -1,9 +1,11 @@
 let sessionLength = 25;
 let breakLength = 5;
+const sessionColor = '#4caf50'; /* #9C0;*/
+const breakColor = '#ff5722'; /*#f44;*/
 let timer = sessionLength * 60;
 let breaker = breakLength * 60;
 let duration = sessionLength * 60;
-var audio = new Audio('http://sampleswap.org/samples-ghost/%20MAY%202014%20LATEST%20ADDITIONS/PUBLIC%20DOMAIN%20MUSIC/626[kb]buster-brown-gonna-make-you-happy-1943.mp3.mp3');
+const audio = new Audio('http://sampleswap.org/samples-ghost/%20MAY%202014%20LATEST%20ADDITIONS/PUBLIC%20DOMAIN%20MUSIC/626[kb]buster-brown-gonna-make-you-happy-1943.mp3.mp3');
 
 /**
 * Load initial page
@@ -95,7 +97,7 @@ function updateTimer() {
 * Update Timer background
 */
 function updateBackground() {
-  let filling = isBreak === 1 ? '#f44' : '#9C0';
+  let filling = isBreak === 1 ? breakColor : sessionColor;
   let rangeFilling = Math.round(Number((1-(timer/(duration))).toFixed(2)) * 100);
   let rangeGray = 100-rangeFilling;
   document.getElementById("btn").style.background = "linear-gradient(#fff, #fff "+rangeGray+"%, "+filling+" "+rangeGray+"%, "+filling+")";
@@ -118,10 +120,10 @@ document.getElementById("btn").addEventListener("click", function() {
                   displayReset();
                   document.getElementById("title").innerHTML = "Session";
                   document.getElementById("btn").innerHTML = "Pause";
-                  document.getElementById("btn").style.border = "2px solid #9C0";
+                  document.getElementById("btn").style.border = `2px solid ${sessionColor}`;
                   document.getElementById("btn").style.color = "#E1E2E1";
-                  document.getElementById("title").style.color = "#9C0";
-                  document.getElementById("canvas").style.color = "#9C0";
+                  document.getElementById("title").style.color = sessionColor;
+                  document.getElementById("canvas").style.color = sessionColor;
                 }
                 if (isBreak === 1) {
                   audio.play();
@@ -137,10 +139,10 @@ document.getElementById("btn").addEventListener("click", function() {
                 duration = breakLength * 60;
                 document.getElementById("title").innerHTML = "Break!";
                 document.getElementById("btn").innerHTML = "Pause";
-                document.getElementById("btn").style.border = "2px solid #f44"
+                document.getElementById("btn").style.border = `2px solid ${breakColor}`;
                 document.getElementById("btn").style.color = "#E1E2E1";
-                document.getElementById("title").style.color = "#f44";
-                document.getElementById("canvas").style.color = "#f44";
+                document.getElementById("title").style.color = breakColor;
+                document.getElementById("canvas").style.color = breakColor;
                 updateTimer();
                 updateBackground();
               }
@@ -151,10 +153,10 @@ document.getElementById("btn").addEventListener("click", function() {
                 duration = sessionLength * 60;
                 document.getElementById("title").innerHTML = "Session";
                 document.getElementById("btn").innerHTML = "Pause";
-                document.getElementById("btn").style.border = "2px solid #9C0";
+                document.getElementById("btn").style.border = `2px solid ${sessionColor}`;
                 document.getElementById("btn").style.color = "#E1E2E1";
-                document.getElementById("title").style.color = "#9C0";
-                document.getElementById("canvas").style.color = "#9C0";
+                document.getElementById("title").style.color = sessionColor;
+                document.getElementById("canvas").style.color = sessionColor;
                 updateTimer();
                 updateBackground();
               }
